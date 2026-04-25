@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: web
+    tier: frontend
+  name: web
+spec:
+  containers:
+  - image: nginx:1.27
+    name: web
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "100m"
+      limits:
+        memory: "128Mi"
+        cpu: "250m"
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
