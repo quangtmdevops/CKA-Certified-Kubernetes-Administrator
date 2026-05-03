@@ -31,9 +31,16 @@ Create a Deployment, perform a rolling update, check rollout history, and rollba
 - update image `k set image deploy webapp nginx=nginx:1.29`
 - 
 5. Watch the rollout status
+- `k rollout status deploy webapp`
 6. Check rollout history — you should see 2 revisions
+- `k rollout history deploy webapp`
 7. Rollback to the previous version (nginx:1.28)
+- ```bash
+  k rollout status deploy webapp
+  Waiting for deployment "webapp" rollout to finish: 1 out of 3 new replicas have been updated...
+    ```
 8. Verify the rollback worked by checking the image
+- `k describe deploy webapp | grep -i image`
 
 ## Hints
 
