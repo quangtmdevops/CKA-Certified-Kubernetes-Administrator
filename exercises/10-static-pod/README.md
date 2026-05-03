@@ -7,13 +7,25 @@ Create a static pod by placing a manifest in the kubelet's static pod directory.
 ## Tasks
 
 1. Find the static pod manifest directory on the node
+- ```shell
+  k create ns exercise-10
+  kn exercise-10
+  k run static-web --image nginx:1.27 --port 80 --namespace=exercise-10 $do > static-web-pod.yaml
+  ```
 2. Create a static pod manifest file for a pod named `static-web` with:
    - Image: `nginx:1.27`
    - Port: 80
+- `d cp static-web-pod.yaml kind-worker:/etc/kubernetes/manifests/`
 3. Verify the static pod appears in `k get pods` (it will have the node name appended)
+- `kgp`
 4. Try to delete the static pod with `kubectl` — observe what happens
+- `k delete po static-web-kind-worker` pod will be recreated
 5. Delete the static pod by removing the manifest file
+- `d exec -it kind-worker rm /etc/kubernetes/manifests/static-web-pod.yaml` pod is gone
 6. Verify the pod is gone
+7. Personal comment
+- I made a major mistake by creating the Pod without specifying a namespace. As a result, when I copied the local file into /etc/kubernetes/manifests/ inside the container, no Pod was created in the exercise-10 namespace. I ended up wasting a lot of time debugging this issue.
+- I also have located the config of kubelet at /var/lib/kubelet/config.yaml by checking the entry for kubelet service running.
 
 ## Hints
 

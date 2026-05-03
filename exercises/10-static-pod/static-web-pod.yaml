@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: static-web
+  name: static-web
+  namespace: exercise-10
+spec:
+  containers:
+  - image: nginx:1.27
+    name: static-web
+    ports:
+    - containerPort: 80
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
