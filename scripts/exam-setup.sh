@@ -16,6 +16,10 @@ alias kdel='kubectl delete'
 
 alias ll='ls -lah'
 
+alias d='docker'
+alias de='docker exec'
+
+
 export do='--dry-run=client -o yaml'
 export now='--force --grace-period=0'
 
