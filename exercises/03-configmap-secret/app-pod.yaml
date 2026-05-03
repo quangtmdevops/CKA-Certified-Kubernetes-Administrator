@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: app
+  name: app
+  namespace: exercise-03
+spec:
+  containers:
+  - image: busybox:1.36
+    name: app
+    command: ["sleep", "3600"]
+    envFrom:
+      - configMapRef:
+          name: app-config
+      - secretRef:
+          name: db-creds
+    volumeMounts:
+      - mountPath: /etc/config
+        name: config-vol
+  volumes:
+    - name: config-vol
+      configMap:
+        name: app-config
+  resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
