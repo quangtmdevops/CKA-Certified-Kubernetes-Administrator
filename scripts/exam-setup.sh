@@ -13,7 +13,7 @@ alias kd='kubectl describe'
 alias kaf='kubectl apply -f'
 alias kdel='kubectl delete'
 
-alias ll = 'ls -lah'
+alias ll='ls -lah'
 
 export do='--dry-run=client -o yaml'
 export now='--force --grace-period=0'
