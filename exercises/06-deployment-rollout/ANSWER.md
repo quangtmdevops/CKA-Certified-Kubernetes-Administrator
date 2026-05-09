@@ -22,7 +22,7 @@ Create a Deployment, perform a rolling update, check rollout history, and rollba
     type: RollingUpdate
     rollingUpdate:
       maxUnavailable: 0
-      macSurge : 1
+      maxSurge : 1
     ```
   - `k apply -f webapp-deployment.yml`
 3. Verify all 3 replicas are running
