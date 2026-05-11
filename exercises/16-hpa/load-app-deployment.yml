@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: load-app
+  name: load-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: load-app
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: load-app
+    spec:
+      containers:
+      - image: nginx:1.27
+        name: nginx
+        ports:
+        - containerPort: 80
+        resources: {}
+        resources:
+          requests:
+            cpu: "50m"
+          limits:
+            cpu: "100m"
+
+status: {}
