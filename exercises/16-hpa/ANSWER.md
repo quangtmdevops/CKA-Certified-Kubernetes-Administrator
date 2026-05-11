@@ -48,6 +48,16 @@ The CKA focuses on HPA, but understanding VPA helps with cluster resource effici
 - `k run load-gen --image=busybox:1.36 --rm -it -- sh -c "while true; do wget -q -O- http://load-svc; done"`
 7. Stop the load and observe the HPA scaling back down
 
+## quangtm note
+
+<details>
+<summary>Click to see more</summary>
+
+- After create clusterIP service, you can call it by `curl http://load-svc` if in the same namespace.
+- If you want to call it from another namespace, you can call it by `curl http://load-svc.exercise-16`
+- --cpu=50% with the meanings is: if the request CPU greater than 50%, the replicas will increase.
+- you can use --rm to remove the Pod after it's finished.
+
 ## Hints
 
 <details>
