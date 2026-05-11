@@ -14,6 +14,8 @@ alias kd='kubectl describe'
 alias kaf='kubectl apply -f'
 alias kdel='kubectl delete'
 
+alias grep='grep --color=auto -i -C 2'
+
 alias ll='ls -lah'
 
 alias d='docker'
