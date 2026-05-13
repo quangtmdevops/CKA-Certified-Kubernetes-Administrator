@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: drain-n-cordon
+  name: drain-n-cordon
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: drain-n-cordon
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: drain-n-cordon
+    spec:
+      containers:
+      - image: nginx:1.28
+        name: nginx
+        resources: {}
+status: {}
