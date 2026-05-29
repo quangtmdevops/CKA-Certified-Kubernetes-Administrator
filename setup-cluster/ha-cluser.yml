@@ -9,3 +9,4 @@ nodes:
 - role: worker
 - role: worker
 
+# command to create cluster: kind create cluster --config ha-cluser.yml
